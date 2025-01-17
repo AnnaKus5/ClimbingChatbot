@@ -20,7 +20,7 @@ CREATE TABLE routes (
     id INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(255) NOT NULL,
     sector_id INT NOT NULL,
-    tall_recommend_sum FLOAT,
+    tall_recommend_sum INT,
     grade_mean FLOAT,
     cluster INT,
     rating_tot FLOAT,
