@@ -1,15 +1,16 @@
-import express from 'express';
+import express, { Request, Response } from 'express';
 import { pool, testConnection } from './config/database.js';
-import routesRouter from './routes/routes.js';
+import routesRouter from './api/routes.js';
+
+console.log("start")
 
 const app = express();
 const port = process.env.PORT || 8080;
 
 app.use(express.json());
 
-app.use('/api/routes', routesRouter);
+// app.use('/api/routes', routesRouter);
 
-// Start serwera
 const startServer = async () => {
     try {
         await testConnection();

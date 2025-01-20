@@ -1,0 +1,29 @@
+{
+    "compilerOptions": {
+      "sourceMap": true,
+      "outDir": "./dist",
+      "strict": true,
+      "lib": [
+        "esnext"
+      ],
+      "esModuleInterop": true,
+      "experimentalDecorators": true,
+      "emitDecoratorMetadata": true,
+      "target": "ESNext",
+      "module": "ESNext",
+      "moduleResolution": "node",
+      "allowJs": true,
+      "resolveJsonModule": true,
+      "skipLibCheck": true,
+      "forceConsistentCasingInFileNames": true,
+      "moduleDetection": "force",
+      "allowImportingTsExtensions": true,
+      "noEmit": true
+    },
+    "ts-node": {
+      "esm": true,
+      "experimentalSpecifiers": true
+    },
+    "include": ["src/**/*"],
+    "exclude": ["node_modules"]
+}
