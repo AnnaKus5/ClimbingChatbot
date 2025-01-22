@@ -1,24 +1,19 @@
 import mysql from 'mysql2';
+import { Sequelize } from 'sequelize-typescript';
 import dotenv from 'dotenv';
+import Crag from '../models/crag.js'
+import Sector from '../models/sector.js';
 
 dotenv.config();
 
-export const pool = mysql.createPool({
+const sequelize = new Sequelize({
+    dialect: "mysql",
     host: process.env.DB_HOST,
     port: Number(process.env.DB_PORT),
-    user: process.env.DB_USER,
+    username: process.env.DB_USER,
     password: process.env.DB_PASSWORD,
-    database: process.env.DB_NAME
-}).promise();
+    database: process.env.DB_NAME,
+    models: [Crag, Sector]
+})
 
-export const testConnection = async () => {
-    try {
-        await pool.query('SELECT 1');
-        console.log('Database connection established successfully.');
-    } catch (error) {
-        console.error('Unable to connect to the database:', error);
-        throw error;
-    }
-};
-
-export default pool;
+export default sequelize;

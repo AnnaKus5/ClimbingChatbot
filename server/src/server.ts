@@ -1,19 +1,17 @@
 import express, { Request, Response } from 'express';
-import { pool, testConnection } from './config/database.js';
-import routesRouter from './api/routes.js';
+import sequelize from './config/database.js';
+import sectorRouter from './api/sectors.js'
 
-const x = 10
-console.log("start")
 const app = express();
 const port = process.env.PORT || 8080;
 
 app.use(express.json());
 
-// app.use('/api/routes', routesRouter);
+app.use('/sectors', sectorRouter)
 
 const startServer = async () => {
     try {
-        await testConnection();
+        await sequelize.sync()
         app.listen(port, () => {
             console.log(`Server running at http://localhost:${port}`);
         });
