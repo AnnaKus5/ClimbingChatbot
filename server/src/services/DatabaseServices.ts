@@ -53,7 +53,6 @@ export default class DatabaseServices {
     }
 
     async searchRoutes(sectorId: number, preferences: RoutePreferences) {
-        // searchRoutes
         const routes = await Route.findAll({
             where: {
                 sector_id: sectorId,
